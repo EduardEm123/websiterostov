@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ростов-на-Дону</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+<header>
+    <h1>Ростов-на-Дону — сердце юга России</h1>
+    <nav>
+        <button class="return"><a href="index.html">Назад</a></button>
+    </nav>
+</header>
+
+<h2>Кроссворд про Ростов</h2>
+<main>
+<table id="crossword"></table>
+</main>
+<button class="btn" onclick="checkAnswers()">Проверить</button>
+<div id="result"></div>
+<section>
+    <center>
+        <p>1.Крупная река, протекающая через Ростов на Дону</p>
+        <p>2.Мемориал в честь революции</p>
+        <p>3.Город спутник Ростова на дону</p>
+        <p>4.Крупнейший ТРЦ</p>
+        <p>5.Центральный исторический район</p>
+        <p>6.Прилагательное, обозначающее принедлежность городу</p>
+        <p>7.Архитектурная жемчужина дореволюционного Ростова</p>
+        <p>8.Атаман, имя в названиях улиц и школ. </p>
+        <p>9.Улица в ЗЖМ, отсылающая к дальневосточной географии</p>
+        <p>10.Место богослужения</p>
+    </center>
+</section>
+
+<script>
+    const crossword = document.getElementById("crossword");
+  
+    // Размер сетки
+    const gridSize = 10;
+  
+    // Шаблон: массив ячеек, где каждая ячейка — объект с координатами и буквой
+    const words = [
+      { word: "ДОН", row: 0, col: 0, dir: "across" },
+      { word: "ТАЧАНКА", row: 1, col: 0, dir: "across" },
+      { word: "БАТАЙСК", row: 2, col: 0, dir: "across" },
+      { word: "ГОРИЗОНТ", row: 3, col: 0, dir: "across" },
+      { word: "КИРОВСКИЙ", row: 4, col: 0, dir: "across" },
+      { word: "РОСТОВСКИЙ", row: 5, col: 0, dir: "across" },
+      { word: "СИНАГОГА", row: 6, col: 0, dir: "across" },
+      { word: "МАРТЫНОВ", row: 7, col: 0, dir: "across" },
+      { word: "КУНАШИР", row: 8, col: 0, dir: "across" },
+      { word: "СОБОР", row: 9, col: 0, dir: "across" },
+    ];
+  
+    // Создание пустой сетки
+    const grid = Array(gridSize).fill(null).map(() =>
+      Array(gridSize).fill(null)
+    );
+  
+    // Заполняем сетку буквами
+    words.forEach(({ word, row, col, dir }) => {
+      for (let i = 0; i < word.length; i++) {
+        const r = dir === "across" ? row : row + i;
+        const c = dir === "across" ? col + i : col;
+        if (!grid[r][c]) {
+          grid[r][c] = word[i];
+        } else if (grid[r][c] !== word[i]) {
+          console.warn(`Конфликт в (${r},${c})`);
+        }
+      }
+    });
+  
+    // Генерация HTML-сетки
+    for (let row = 0; row < gridSize; row++) {
+      for (let col = 0; col < gridSize; col++) {
+        const input = document.createElement("input");
+        input.setAttribute("maxlength", "1");
+        input.className = "cell";
+  
+        if (grid[row][col]) {
+          input.dataset.answer = grid[row][col];
+        } else {
+          input.disabled = true;
+        }
+  
+        crossword.appendChild(input);
+      }
+    }
+  
+    // Проверка ответа
+    function checkAnswers() {
+      const inputs = document.querySelectorAll(".cell");
+      inputs.forEach((cell) => {
+        if (cell.disabled) return;
+        const val = cell.value.toUpperCase();
+        const answer = cell.dataset.answer;
+        if (val === "") {
+          cell.classList.remove("correct", "wrong");
+        } else if (val === answer) {
+          cell.classList.add("correct");
+          cell.classList.remove("wrong");
+        } else {
+          cell.classList.add("wrong");
+          cell.classList.remove("correct");
+        }
+      });
+    }
+  </script>
+
+
+
+<footer>
+    <p>&copy; 2025 Ростов-на-Дону | Все права защищены</p>
+</footer>
+
+</body>
+</html>

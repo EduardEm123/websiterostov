@@ -1,0 +1,117 @@
+*{
+    scroll-behavior: smooth;
+}
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+header {
+    background-color: #004d66;
+    color: #fff;
+    text-align: center;
+    padding-top: 20px;
+    z-index: 1000;
+    position: sticky;
+    top: 0;
+}
+nav {
+    background-color: #ddd;
+    padding: 10px;
+    text-align: center;
+}
+nav a {
+    margin: 0 15px;
+    color: #004d66;
+    text-decoration: none;
+    font-weight: bold;
+}
+section {
+    padding: 20px;
+    background-color: #fff;
+    margin: 10px auto;
+    max-width: 900px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+h2 {
+    color: #006080;
+}
+footer {
+    text-align: center;
+    padding: 15px;
+    background-color: #004d66;
+    color: white;
+}
+a{
+    text-decoration: none;
+}
+#cit{
+    text-align: center;
+    font-weight: bold;
+}
+h2{
+    text-align: center;
+}
+a{
+    text-decoration: none;
+    color: white;
+}
+.tamoz{
+    width: 900px;
+
+}
+.krep{
+    width: 900px;
+}
+.kazak{
+    width: 900px;
+}
+img{
+    width: 900px;
+}
+.gerb{
+    width: 500px;
+    display: flex;
+    justify-self: center;
+}
+.flag{
+    width: 700px;
+    display: flex;
+    justify-self: center;
+}
+#crossword {
+    display: grid;
+    grid-template-columns: repeat(10, 35px);
+    gap: 2px;
+    margin-bottom: 20px;
+    
+  }
+  input.cell {
+    width: 35px;
+    height: 35px;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 18px;
+  }
+  input.cell:disabled {
+    background-color: #ccc;
+  }
+  .correct {
+    background-color: #c7ffc7;
+  }
+  .wrong {
+    background-color: #ffc7c7;
+  }
+main{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+}
+.btn{
+   position: relative;
+   left: 50%;
+}
