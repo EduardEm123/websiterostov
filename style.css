@@ -106,11 +106,6 @@ img{
   .wrong {
     background-color: #ffc7c7;
   }
-main{
-    display: flex;
-    text-align: center;
-    justify-content: center;
-}
 .btn{
    position: relative;
    left: 50%;
